@@ -4,6 +4,7 @@
     <input type="text">
     <div>AT exp: {{ new Date(okta.accessToken.expiresAt * 1000) }}</div>
     <div>ID exp: {{ new Date(okta.idToken.expiresAt * 1000) }}</div>
+    <button value="XXXXXX" @click="test">test</button>
   </div>
 </template>
 
@@ -22,6 +23,9 @@ export default {
   mounted() {
   },
   methods: {
+    test() {
+      this.$auth.tokenManager.renew('accessToken');
+    },
   },
 };
 </script>
